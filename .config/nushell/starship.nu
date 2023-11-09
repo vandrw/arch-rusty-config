@@ -6,17 +6,14 @@ export-env { load-env {
     STARSHIP_SHELL: "nu"
     STARSHIP_SESSION_KEY: (random chars -l 16)
     PROMPT_MULTILINE_INDICATOR: (
-        ^/run/current-system/sw/bin/starship prompt --continuation
+        ^/usr/bin/starship prompt --continuation
     )
-
-    # Does not play well with default character module.
-    # TODO: Also Use starship vi mode indicators?
     PROMPT_INDICATOR: ""
 
     PROMPT_COMMAND: {||
         # jobs are not supported
         (
-            ^/run/current-system/sw/bin/starship prompt
+            ^/usr/bin/starship prompt
                 --cmd-duration $env.CMD_DURATION_MS
                 $"--status=($env.LAST_EXIT_CODE)"
                 --terminal-width (term size).columns
@@ -29,7 +26,7 @@ export-env { load-env {
 
     PROMPT_COMMAND_RIGHT: {||
         (
-            ^/run/current-system/sw/bin/starship prompt
+            ^/usr/bin/starship prompt
                 --right
                 --cmd-duration $env.CMD_DURATION_MS
                 $"--status=($env.LAST_EXIT_CODE)"
