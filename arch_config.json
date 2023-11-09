@@ -1,0 +1,116 @@
+{
+    "additional-repositories": [],
+    "archinstall-language": "English",
+    "audio_config": {
+        "audio": "pipewire"
+    },
+    "bootloader": "Systemd-boot",
+    "config_version": "2.6.3",
+    "debug": false,
+    "hostname": "arch",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "us",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_US"
+    },
+    "mirror_config": {
+        "custom_mirrors": [],
+        "mirror_regions": {
+            "Netherlands": [
+                "https://nl.mirror.flokinet.net/archlinux/$repo/os/$arch",
+                "https://mirrors.xtom.nl/archlinux/$repo/os/$arch",
+                "https://mirror.mijn.host/archlinux/$repo/os/$arch",
+                "https://mirror.lyrahosting.com/archlinux/$repo/os/$arch",
+                "https://mirror.koddos.net/archlinux/$repo/os/$arch",
+                "https://mirror.i3d.net/pub/archlinux/$repo/os/$arch",
+                "https://mirror.cj2.nl/archlinux/$repo/os/$arch",
+                "https://mirror.ams1.nl.leaseweb.net/archlinux/$repo/os/$arch",
+                "https://archlinux.mirror.wearetriple.com/$repo/os/$arch",
+                "https://archlinux.mirror.liteserver.nl/$repo/os/$arch",
+                "https://arch.mirrors.lavatech.top/$repo/os/$arch",
+                "http://nl.mirror.flokinet.net/archlinux/$repo/os/$arch",
+                "http://mirrors.xtom.nl/archlinux/$repo/os/$arch",
+                "http://mirror.mijn.host/archlinux/$repo/os/$arch",
+                "http://mirror.lyrahosting.com/archlinux/$repo/os/$arch",
+                "http://mirror.koddos.net/archlinux/$repo/os/$arch",
+                "http://mirror.i3d.net/pub/archlinux/$repo/os/$arch",
+                "http://mirror.cj2.nl/archlinux/$repo/os/$arch",
+                "http://mirror.ams1.nl.leaseweb.net/archlinux/$repo/os/$arch",
+                "http://ftp.snt.utwente.nl/pub/os/linux/archlinux/$repo/os/$arch",
+                "http://ftp.nluug.nl/os/Linux/distr/archlinux/$repo/os/$arch",
+                "http://archlinux.mirror.wearetriple.com/$repo/os/$arch",
+                "http://archlinux.mirror.liteserver.nl/$repo/os/$arch",
+                "http://arch.mirrors.lavatech.top/$repo/os/$arch"
+            ]
+        }
+    },
+    "network_config": {
+        "type": "nm"
+    },
+    "no_pkg_lookups": false,
+    "ntp": true,
+    "offline": false,
+    "packages": [
+        "wget",
+        "nano",
+        "man",
+        "git",
+        "python",
+        "ruff-lsp",
+        "taplo-cli",
+        "wezterm",
+        "helix",
+        "broot",
+        "gitui",
+        "atuin",
+        "zellij",
+        "nushell",
+        "starship",
+        "eza",
+        "bat",
+        "ripgrep-all",
+        "fd",
+        "zoxide",
+        "dua-cli",
+        "duf",
+        "fzf",
+        "bottom",
+        "procs",
+        "git-delta",
+        "hyprland",
+        "swaylock",
+        "swayidle",
+        "wl-clipboard",
+        "mako",
+        "grim",
+        "slurp",
+        "greetd",
+        "greetd-tuigreet",
+        "nerd-fonts",
+        "noto-fonts",
+        "noto-fonts-emoji",
+        "chezmoi",
+        "polkit-kde-agent",
+        "wireplumber",
+        "qt5-wayland",
+        "qt6-wayland"
+    ],
+    "parallel downloads": 4,
+    "p`rofi`le_config": {
+        "gfx_driver": null,
+        "greeter": null,
+        "profile": {
+            "custom_settings": {},
+            "details": [],
+            "main": "Minimal"
+        }
+    },
+    "script": "guided",
+    "silent": false,
+    "swap": true,
+    "timezone": "Europe/Amsterdam",
+    "version": "2.6.3"
+}

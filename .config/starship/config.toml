@@ -1,0 +1,148 @@
+# ~/.config/starship.toml
+
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$fill\
+$battery\
+$time\
+$line_break\
+$jobs\
+$status\
+$os\
+$container\
+$shell\
+$character"""
+
+palette = 'mocha'
+
+[palettes.mocha]
+bright-purple = "#b4befe" # lavender
+purple = "#cba6f7" # mauve
+bright-red = "#eba0ac" # maroon
+red = "#f38ba8" # red
+bright-yellow = "#f9e2af" # yellow
+yellow = "#fab387" # peach
+bright-green = "#94e2d5" # teal
+green = "#a6e3a1" # green
+bright-cyan = "#89dceb" # sky
+cyan = "#74c7ec" # sapphire
+bright-blue = "#abcbfd" # custom blue
+blue = "#89b4fa" # blue
+bright-white = "#f5e0dc" # rosewater
+white = "#cdd6f4" # text
+bright-black = "#45475a" # surface1
+black = "#1e1e2e" # base
+
+[time]
+disabled = false
+format = ' [ $time]($style) '
+style = "bold cyan"
+
+[username]
+style_user = "bright-cyan"
+style_root = "bold red"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[directory]
+style = "bright-yellow"
+format = "[$path]($style) "
+truncation_length = 3
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = true
+style = "bright-purple"
+show_notifications = true
+
+[status]
+style = "bold red"
+symbol = ""
+not_executable_symbol = ""
+not_found_symbol = "󰍉"
+sigint_symbol = "󰟾"
+signal_symbol = "󱐋"
+format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+disabled = false
+
+[character]
+success_symbol = "[](green)"
+error_symbol = "[](red)"
+
+[fill]
+symbol = " "

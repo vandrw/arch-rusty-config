@@ -1,0 +1,19 @@
+[[language]]
+name = "python"
+roots = ["pyproject.toml"]
+language-servers = [ "ruff" ]
+
+[language-server.ruff]
+command = "ruff-lsp"
+config = { settings = { run = "onSave" } }
+
+
+[[language]]
+name = "rust"
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }

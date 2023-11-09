@@ -1,0 +1,6 @@
+[terminal]
+vt = 1
+
+[default_session]
+command = "tuigreet --asterisks --asterisks-char x --time --time-format '%A, %d %B %Y - %H:%M:%S' --cmd Hyprland"
+user = "greeter"
