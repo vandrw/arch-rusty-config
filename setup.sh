@@ -4,6 +4,12 @@ archinstall --config arch_config.json
 
 mnt_folder="/mnt/archinstall"
 
+# Check if mnt_folder exists
+if [ ! -d "$mnt_folder" ]; then
+    echo "Error: $mnt_folder does not exist"
+    exit 1
+fi
+
 # Find all users on the system
 for user in $(ls $rt_flder/home); do
     if [ "$user" != "lost+found" ]; then
