@@ -11,7 +11,7 @@ if [ ! -d "$mnt_folder" ]; then
 fi
 
 # Find all users on the system
-for user in $(ls $rt_flder/home); do
+for user in $(ls $mnt_flder/home); do
     if [ "$user" != "lost+found" ]; then
         users+=($user)
     fi
@@ -40,7 +40,7 @@ cp -rv .local $mnt_folder/home/$user
 cp -v post_reboot.sh $mnt_folder/home/$user
 
 # Greetd config is stored in /etc/greetd. We move it now to bypass using sudo later.
-cp -v .config/greetd/config.toml /etc/greetd/config.toml
+cp -v .config/greetd/config.toml $mnt_folder/etc/greetd/config.toml
 
 echo "Done. Press enter to reboot..."
 read -r
