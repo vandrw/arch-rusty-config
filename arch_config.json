@@ -58,6 +58,7 @@
         "nano",
         "man",
         "git",
+        "rustup",
         "python",
         "ruff-lsp",
         "taplo-cli",

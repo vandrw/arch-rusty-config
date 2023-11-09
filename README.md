@@ -52,6 +52,7 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [x] See this nushell config: https://github.com/nullishamy/derivation-station/blob/master/users/amy/apps/tools/nu/config.nu#L1
 * [x] Make nushell command to update system: sys_update = paru -Syu --noconfirm & rustup update
 * [x] use Eww instead of waybar?
+* [ ] xwaylandvideobridge should autostart on login
 * [ ] fix dolphin thumbnails (need to get new theme for icons in general)
 * [ ] fix lockscreen commands and stuff
 * [ ] go to lockscreen on lid close and go to sleep (see https://wiki.archlinux.org/title/Power_management#ACPI_events)

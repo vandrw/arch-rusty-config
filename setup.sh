@@ -1,7 +1,11 @@
 #!/bin/bash
 
+archinstall --config arch_config.json
+
+mnt_folder="/mnt/archinstall"
+
 # Find all users on the system
-for user in $(ls /home); do
+for user in $(ls $rt_flder/home); do
     if [ "$user" != "lost+found" ]; then
         users+=($user)
     fi
@@ -21,55 +25,20 @@ else
     user=${users[0]}
 fi
 
-echo "Installing for user $user"
+echo "Moving configs to home of $user. Press enter to continue..."
+read -r
 
-# chroot as the user
-arch-chroot /mnt -u $user
-cd /home/$user
+# Copy files to user's home directory
+cp -rv .config $mnt_folder/home/$user
+cp -rv .local $mnt_folder/home/$user
+cp -v post_reboot.sh $mnt_folder/home/$user
 
-# Update system
-sudo pacman -Syyu --noconfirm
-sudo pacman -S --needed base-devel --noconfirm
+# Greetd config is stored in /etc/greetd. We move it now to bypass using sudo later.
+cp -v .config/greetd/config.toml /etc/greetd/config.toml
 
-echo "Installing Rustup"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+echo "Done. Press enter to reboot..."
+read -r
 
-# Intialize rustc and cargo
-echo "Initializing Rust"
-rustup toolchain install stable
-rustup default stable
-rustup update
-
-# Rust language server
-echo "Installing Rust Language Server"
-rustup component add clippy
-rustup component add rust-analyzer
-
-echo "Installing paru, a yay replacement written in Rust"
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-
-echo "Cleaning up paru build files"
-cd ..
-rm -rvf paru
-
-# greetd is by default configured through /etc/greetd/config.toml
-# make a link to the config file in the repo?
-# greetd -c ~/.config/greetd/config.toml
-
-echo "Installing additional AUR packages"
-paru -S tlrc catppuccin-cursors-mocha rofi-lbonn-wayland eww-wayland sway-audio-idle-inhibit-git xwaylandvideobridge-git --noconfirm 
-# hyprctl setcursor Catppuccin-Mocha-Dark 16 -- if the cursor doesn't work
-# xwaylandvideobridge should autostart on login
-# paru -S hyprland-nvidia --noconfirm # If you have an nvidia card and running into issues
-
-# Initialize apps that need it
-broot --install
-tldr --update
-bat cache --build
-
-# Enable
-systemctl enable wireplumber
-systemctl enable pipewire
-systemctl enable greetd
+# arch-chroot $mnt_folder /bin/bash -c "cd /home/$user && ./post_reboot.sh"
+# Reboot into the new system
+reboot
