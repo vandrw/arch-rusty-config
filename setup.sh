@@ -11,8 +11,8 @@ if [ ! -d "$mnt_folder" ]; then
 fi
 
 # Find all users on the system
-for user in $(ls $mnt_flder/home); do
-    if [ "$user" != "lost+found" ]; then
+for user in $(ls $mnt_folder/home); do
+    if [ "$user" != "lost+found" && "$user" != "" ]; then
         users+=($user)
     fi
 done
@@ -35,7 +35,7 @@ else
 fi
 
 if [ -z "$user" ]; then
-    echo "Error: No user found. Please verify that /mnt/archinstall/home contains a user folder."
+    echo "Error: No user found. Please verify that $mnt_folder/home contains a user folder."
     exit 1
 fi
 
