@@ -1,3 +1,14 @@
+# Check if internet is working
+if ! ping -c 1 archlinux.org; then
+    echo "Error: No internet connection"
+    exit 1
+fi
+
+# Change ownership of files to user
+user=$(whoami)
+sudo chown -R $user:$user $mnt_folder/home/$user/.config
+sudo chown -R $user:$user $mnt_folder/home/$user/.local
+
 # Update system
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed base-devel --noconfirm
@@ -10,8 +21,7 @@ rustup update
 
 # Rust language server
 echo "Installing Rust Language Server"
-rustup component add clippy
-rustup component add rust-analyzer
+rustup component add clippy rust-analyzer
 
 echo "Installing paru, a yay replacement written in Rust"
 git clone https://aur.archlinux.org/paru.git
@@ -23,11 +33,20 @@ cd ..
 rm -rf paru
 
 echo "Installing additional AUR packages"
-paru -S tlrc catppuccin-cursors-mocha rofi-lbonn-wayland sway-audio-idle-inhibit-git xwaylandvideobridge-git --noconfirm 
+paru -S \
+    tlrc \
+    numbat \
+    catppuccin-gtk-theme-mocha \
+    catppuccin-cursors-mocha \
+    rofi-lbonn-wayland \
+    sway-audio-idle-inhibit-git \
+    xwaylandvideobridge-git \
+    librewolf-bin \
+    --noconfirm 
 
 curl -sS https://github.com/elkowar.gpg | gpg --import -i -
 curl -sS https://github.com/web-flow.gpg | gpg --import -i -
-paru -S eww-wayland
+paru -S eww-wayland --noconfirm
 
 # paru -S hyprland-nvidia --noconfirm # If you have an nvidia card and running into issues
 
@@ -35,8 +54,32 @@ paru -S eww-wayland
 broot --install
 tldr --update
 bat cache --build
+starship init nu | save -f ~/.local/share/starship.nu
+zoxide init nushell | save -f ~/.local/share/zoxide.nu
+atuin init nu | save ~/.local/share/atuin.nu
+
+# Make tty have Catppuccin Mocha theme
+bootloader_entry=$(ls /boot/loader/entries/ | grep -v "fallback")
+tty_theme=" vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166 vt.default_grn=30,139,227,226,180,194,226,194,91,139,227,226,180,194,226,173 vt.default_blu=46,168,161,175,250,231,213,222,112,168,161,175,250,231,213,200"
+
+if [[ $(tail -n 1 /boot/loader/entries/$bootloader_entry) == "options"* ]]; then
+    if [[ $(tail -n 1 /boot/loader/entries/$bootloader_entry) == *"vt.default_red"* ]]; then
+        echo "Catppuccin Mocha theme already set. Skipping..."
+    else
+        echo "Setting Catppuccin Mocha theme to tty..."
+        sudo printf $tty_theme >> /boot/loader/entries/$bootloader_entry
+    fi
+else
+    echo "Error: Last line of /boot/loader/entries/$bootloader_entry does not start with \"options\""
+    echo "Please manually add the following to the \"options\" line:"
+    echo $tty_theme
+fi
+
+# Set default shell to nushell
+chsh -s /bin/nu
 
 # Enable greetd after everything is installed. Otherwise, it will start right into hyprland.
-systemctl enable wireplumber
-systemctl enable pipewire
-systemctl enable greetd
+sudo systemctl enable \
+    greetd \
+    pipewire \
+    wireplumber

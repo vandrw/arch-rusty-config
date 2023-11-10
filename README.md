@@ -52,20 +52,24 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [x] See this nushell config: https://github.com/nullishamy/derivation-station/blob/master/users/amy/apps/tools/nu/config.nu#L1
 * [x] Make nushell command to update system: sys_update = paru -Syu --noconfirm & rustup update
 * [x] use Eww instead of waybar?
-* [ ] xwaylandvideobridge should autostart on login
-* [ ] fix dolphin thumbnails (need to get new theme for icons in general)
+* [x] Change starship config location to ~/.config/starship/config.toml (export STARSHIP_CONFIG=~/.config/starship/config.toml)
+* [x] xwaylandvideobridge should autostart on login
+* [ ] Set a wallpaper
+* [ ] fix dark theme system-wide and thumbnails; fix dolphin - Papirus icons?; set QT_QPA_PLATFORMTHEME=qt5ct
+* [ ] chezmoi + command to commit changes
+* [ ] make eww bar work
 * [ ] fix lockscreen commands and stuff
 * [ ] go to lockscreen on lid close and go to sleep (see https://wiki.archlinux.org/title/Power_management#ACPI_events)
-* [ ] set brightness and volume keys
 * [ ] fix poweroff, reboot, suspend, hibernate - for long press power button maybe turn off, otherwise sleep?
+* [ ] set brightness and volume keys
 * [ ] show bluetooth, wifi, battery info in bar
-* [ ] ripgrep-all with fzf? https://github.com/phiresky/ripgrep-all/wiki/fzf-Integration
-* [ ] see this: https://github.com/quantonganh/helix-wezterm
-* [ ] Change starship config location to ~/.config/starship/config.toml (export STARSHIP_CONFIG=~/.config/starship/config.toml)
 * [ ] Find a display configurator (e.g., wdisplays), but make sure it works well on Hyprland
 * [ ] brightnessctl ?
 * [ ] https://github.com/coffebar/hyprland-monitor-attached
-* [ ] chezmoi + command to commit changes
+* [ ] see this: https://github.com/quantonganh/helix-wezterm
+* [ ] helix: select next matching word with key (Ctrl + D?) and move lines up and down with keys (Alt + Up/Down or j/k?)
+* [ ] eww [numbat](https://github.com/sharkdp/numbat) widget
+* [ ] ripgrep-all with fzf? https://github.com/phiresky/ripgrep-all/wiki/fzf-Integration
 * Example: https://github.com/i4pg/dotfiles
 
 # Left to config

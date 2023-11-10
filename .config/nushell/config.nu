@@ -8,11 +8,11 @@
 # https://github.com/nushell/nu_scripts/tree/main/themes
 
 use ~/.config/nushell/env.nu
-source ~/.config/nushell/zoxide.nu
-source ~/.config/nushell/atuin.nu
-
-alias sys_update = paru -Syu --noconfirm & rustup update
-alias hx = helix
+use ~/.config/nushell/aliases.nu
+# source ~/.config/nushell/rga_fzf.nu
+source ~/.local/share/starship.nu
+source ~/.local/share/zoxide.nu
+source ~/.local/share/atuin.nu
 
 const color_palette = {
     rosewater: "#f5e0dc"

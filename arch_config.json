@@ -96,6 +96,8 @@
         "chezmoi",
         "polkit-kde-agent",
         "wireplumber",
+        "dolphin",
+        "papirus-icon-theme",
         "qt5-wayland",
         "qt6-wayland"
     ],

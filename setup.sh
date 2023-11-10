@@ -37,7 +37,9 @@ read -r
 # Copy files to user's home directory
 cp -rv .config $mnt_folder/home/$user
 cp -rv .local $mnt_folder/home/$user
-cp -v post_reboot.sh $mnt_folder/home/$user
+
+chmod +x post_reboot.sh
+cp -av post_reboot.sh $mnt_folder/home/$user
 
 # Greetd config is stored in /etc/greetd. We move it now to bypass using sudo later.
 cp -v .config/greetd/config.toml $mnt_folder/etc/greetd/config.toml
