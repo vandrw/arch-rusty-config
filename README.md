@@ -54,7 +54,7 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [x] use Eww instead of waybar?
 * [x] Change starship config location to ~/.config/starship/config.toml (export STARSHIP_CONFIG=~/.config/starship/config.toml)
 * [x] xwaylandvideobridge should autostart on login
-* [ ] Set a wallpaper
+* [x] Set a wallpaper
 * [ ] fix dark theme system-wide and thumbnails; fix dolphin - Papirus icons?; set QT_QPA_PLATFORMTHEME=qt5ct
 * [ ] chezmoi + command to commit changes
 * [ ] make eww bar work

@@ -29,6 +29,14 @@ if [ ${#users[@]} -gt 1 ]; then
     done
 else
     user=${users[0]}
+    if [ -z "$user" ]; then
+        user=${users[1]}
+    fi
+fi
+
+if [ -z "$user" ]; then
+    echo "Error: No user found. Please verify that /mnt/archinstall/home contains a user folder."
+    exit 1
 fi
 
 echo "Moving configs to home of $user. Press enter to continue..."
