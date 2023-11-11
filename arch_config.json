@@ -89,6 +89,7 @@
         "mako",
         "grim",
         "slurp",
+        "brightnessctl",
         "greetd",
         "greetd-tuigreet",
         "nerd-fonts",
@@ -99,6 +100,7 @@
         "wireplumber",
         "dolphin",
         "papirus-icon-theme",
+        "qt5ct",
         "qt5-wayland",
         "qt6-wayland"
     ],

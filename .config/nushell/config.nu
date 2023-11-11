@@ -8,7 +8,7 @@
 # https://github.com/nushell/nu_scripts/tree/main/themes
 
 use ~/.config/nushell/env.nu
-use ~/.config/nushell/aliases.nu
+source ~/.config/nushell/aliases.nu
 # source ~/.config/nushell/rga_fzf.nu
 source ~/.local/share/starship.nu
 source ~/.local/share/zoxide.nu

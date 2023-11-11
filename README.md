@@ -55,16 +55,17 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [x] Change starship config location to ~/.config/starship/config.toml (export STARSHIP_CONFIG=~/.config/starship/config.toml)
 * [x] xwaylandvideobridge should autostart on login
 * [x] Set a wallpaper
+* [x] brightnessctl ?
+* [x] chezmoi + command to commit changes
 * [ ] fix dark theme system-wide and thumbnails; fix dolphin - Papirus icons?; set QT_QPA_PLATFORMTHEME=qt5ct
-* [ ] chezmoi + command to commit changes
-* [ ] make eww bar work
-* [ ] fix lockscreen commands and stuff
+* [x] fix lockscreen commands and stuff
 * [ ] go to lockscreen on lid close and go to sleep (see https://wiki.archlinux.org/title/Power_management#ACPI_events)
 * [ ] fix poweroff, reboot, suspend, hibernate - for long press power button maybe turn off, otherwise sleep?
 * [ ] set brightness and volume keys
 * [ ] show bluetooth, wifi, battery info in bar
+* [ ] make eww bar work
+* [ ] fix cursor theme
 * [ ] Find a display configurator (e.g., wdisplays), but make sure it works well on Hyprland
-* [ ] brightnessctl ?
 * [ ] https://github.com/coffebar/hyprland-monitor-attached
 * [ ] see this: https://github.com/quantonganh/helix-wezterm
 * [ ] helix: select next matching word with key (Ctrl + D?) and move lines up and down with keys (Alt + Up/Down or j/k?)

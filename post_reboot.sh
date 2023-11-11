@@ -42,6 +42,7 @@ paru -S \
     sway-audio-idle-inhibit-git \
     xwaylandvideobridge-git \
     librewolf-bin \
+    logseq-desktop-wayland-bin \
     --noconfirm 
 
 curl -sS https://github.com/elkowar.gpg | gpg --import -i -
@@ -51,12 +52,13 @@ paru -S eww-wayland --noconfirm
 # paru -S hyprland-nvidia --noconfirm # If you have an nvidia card and running into issues
 
 # Initialize apps that need it
+curl "https://github.com/Canop/broot/blob/main/resources/icons/vscode/vscode.ttf" -o ~/.local/share/fonts/vscode.ttf
 broot --install
 tldr --update
 bat cache --build
-starship init nu | save -f ~/.local/share/starship.nu
-zoxide init nushell | save -f ~/.local/share/zoxide.nu
-atuin init nu | save ~/.local/share/atuin.nu
+starship init nu > ~/.local/share/starship.nu
+zoxide init nushell > ~/.local/share/zoxide.nu
+atuin init nu > ~/.local/share/atuin.nu
 
 # Make tty have Catppuccin Mocha theme
 bootloader_entry=$(ls /boot/loader/entries/ | grep -v "fallback")
@@ -67,7 +69,7 @@ if [[ $(tail -n 1 /boot/loader/entries/$bootloader_entry) == "options"* ]]; then
         echo "Catppuccin Mocha theme already set. Skipping..."
     else
         echo "Setting Catppuccin Mocha theme to tty..."
-        sudo printf $tty_theme >> /boot/loader/entries/$bootloader_entry
+        sudo printf "$tty_theme" >> /boot/loader/entries/$bootloader_entry
     fi
 else
     echo "Error: Last line of /boot/loader/entries/$bootloader_entry does not start with \"options\""
@@ -79,7 +81,5 @@ fi
 chsh -s /bin/nu
 
 # Enable greetd after everything is installed. Otherwise, it will start right into hyprland.
-sudo systemctl enable \
-    greetd \
-    pipewire \
-    wireplumber
+sudo systemctl enable greetd
+sudo systemctl enable pipewire wireplumber
