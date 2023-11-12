@@ -6,8 +6,8 @@ fi
 
 # Change ownership of files to user
 user=$(whoami)
-sudo chown -R $user:$user $mnt_folder/home/$user/.config
-sudo chown -R $user:$user $mnt_folder/home/$user/.local
+sudo chown -R $user:$user /home/$user/.config
+sudo chown -R $user:$user /home/$user/.local
 
 # Update system
 sudo pacman -Syu --noconfirm
@@ -57,10 +57,6 @@ paru -S \
     yt-dlp \
     --noconfirm
 # xwaylandvideobridge-git disabled for now
-
-curl -sS https://github.com/elkowar.gpg | gpg --import -i -
-curl -sS https://github.com/web-flow.gpg | gpg --import -i -
-paru -S eww-wayland --noconfirm
 
 # paru -S hyprland-nvidia --noconfirm # If you have an nvidia card and running into issues
 

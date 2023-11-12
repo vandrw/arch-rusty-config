@@ -9,7 +9,8 @@
 
 use ~/.config/nushell/env.nu
 source ~/.config/nushell/aliases.nu
-# source ~/.config/nushell/rga_fzf.nu
+source ~/.config/nushell/rga_fzf.nu
+# source ~/.config/nushell/auto_start_zellij.nu
 source ~/.local/share/starship.nu
 source ~/.local/share/zoxide.nu
 source ~/.local/share/atuin.nu
