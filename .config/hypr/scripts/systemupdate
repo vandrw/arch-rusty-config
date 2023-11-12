@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# Check release
+if [ ! -f /etc/arch-release ] ; then
+    exit 0
+fi
+
+# source variables
+ScrDir=`dirname $(realpath $0)`
+source $ScrDir/globalcontrol
+
+# Check for updates
+aur=`paru -Qua | wc -l`
+ofc=`checkupdates | wc -l`
+
+# Check for rustup updates
+rstp=`rustup check | grep "Update available" | wc -l`
+if [ $rstp -gt 0 ] ; then
+    rstp="\n󰏓 Rustup $rstp"
+    rstp_exup="; rustup update"
+else
+    rstp=""
+    rstp_exup=""
+fi
+
+# Calculate total available updates
+upd=$(( ofc + aur + rstp ))
+
+# Show tooltip
+if [ $upd -eq 0 ] ; then
+    echo "{\"text\":\"$upd\", \"tooltip\":\" Packages are up to date\"}"
+else
+    echo "{\"text\":\"$upd\", \"tooltip\":\"󱓽 Official $ofc\n󱓾 AUR $aur$rstp_disp\"}"
+fi
+
+# Trigger upgrade
+if [ "$1" == "up" ] ; then
+    wezterm --title systemupdate sh -c "paru -Syu $rstp_exup"
+fi
+

@@ -13,6 +13,13 @@ sudo chown -R $user:$user $mnt_folder/home/$user/.local
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed base-devel --noconfirm
 
+# Install nvidia drivers if nvidia card is detected
+if [ `lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l` -gt 0 ]; then
+        echo "Nvidia card detected..."
+        sudo pacman -S --needed nvidia-utils --noconfirm
+        paru -S hyprland-nvidia-git --noconfirm
+fi
+
 # Intialize rustc and cargo
 echo "Initializing Rust"
 rustup toolchain install stable
@@ -34,16 +41,22 @@ rm -rf paru
 
 echo "Installing additional AUR packages"
 paru -S \
-    tlrc \
-    numbat \
     catppuccin-gtk-theme-mocha \
     catppuccin-cursors-mocha \
-    rofi-lbonn-wayland \
     sway-audio-idle-inhibit-git \
-    xwaylandvideobridge-git \
+    xdg-desktop-portal-hyprland-git \
+    swww \
+    wleave-git \
+    waybar-hyprland-git \
+    rofi-lbonn-wayland \
+    tlrc \
+    numbat \
     librewolf-bin \
     logseq-desktop-wayland-bin \
-    --noconfirm 
+    grimblast-git \
+    yt-dlp \
+    --noconfirm
+# xwaylandvideobridge-git disabled for now
 
 curl -sS https://github.com/elkowar.gpg | gpg --import -i -
 curl -sS https://github.com/web-flow.gpg | gpg --import -i -
@@ -56,6 +69,7 @@ curl "https://github.com/Canop/broot/blob/main/resources/icons/vscode/vscode.ttf
 broot --install
 tldr --update
 bat cache --build
+ufw enable
 starship init nu > ~/.local/share/starship.nu
 zoxide init nushell > ~/.local/share/zoxide.nu
 atuin init nu > ~/.local/share/atuin.nu
@@ -69,7 +83,7 @@ if [[ $(tail -n 1 /boot/loader/entries/$bootloader_entry) == "options"* ]]; then
         echo "Catppuccin Mocha theme already set. Skipping..."
     else
         echo "Setting Catppuccin Mocha theme to tty..."
-        sudo printf "$tty_theme" >> /boot/loader/entries/$bootloader_entry
+        printf "$tty_theme" | sudo tee -a /boot/loader/entries/$bootloader_entry
     fi
 else
     echo "Error: Last line of /boot/loader/entries/$bootloader_entry does not start with \"options\""
@@ -77,9 +91,10 @@ else
     echo $tty_theme
 fi
 
+echo "HandlePowerKey=suspend" | sudo tee -a /etc/systemd/logind.conf
+
 # Set default shell to nushell
 chsh -s /bin/nu
 
 # Enable greetd after everything is installed. Otherwise, it will start right into hyprland.
-sudo systemctl enable greetd
-sudo systemctl enable pipewire wireplumber
+sudo systemctl enable greetd ufw NetworkManager

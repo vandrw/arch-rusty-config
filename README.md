@@ -57,21 +57,21 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [x] Set a wallpaper
 * [x] brightnessctl ?
 * [x] chezmoi + command to commit changes
-* [ ] fix dark theme system-wide and thumbnails; fix dolphin - Papirus icons?; set QT_QPA_PLATFORMTHEME=qt5ct
 * [x] fix lockscreen commands and stuff
-* [ ] go to lockscreen on lid close and go to sleep (see https://wiki.archlinux.org/title/Power_management#ACPI_events)
-* [ ] fix poweroff, reboot, suspend, hibernate - for long press power button maybe turn off, otherwise sleep?
-* [ ] set brightness and volume keys
-* [ ] show bluetooth, wifi, battery info in bar
-* [ ] make eww bar work
+* [x] fix dark theme system-wide and thumbnails; fix dolphin - Papirus icons?; set QT_QPA_PLATFORMTHEME=qt5ct
+* [x] go to lockscreen on lid close and go to sleep (see https://wiki.archlinux.org/title/Power_management#ACPI_events)
+* [x] fix poweroff, reboot, suspend, hibernate - for long press power button maybe turn off, otherwise sleep?
+* [x] set brightness and volume keys
+* [x] show bluetooth, wifi, battery info in bar
+* [x] set screenshot key to something like: grim -g "$(slurp)" - | swappy -f - (we're using grimblast though)
+* [ ] helix: select next matching word with key (Ctrl + D?) and move lines up and down with keys (Alt + Up/Down or j/k?)
+* [ ] ripgrep-all with fzf? https://github.com/phiresky/ripgrep-all/wiki/fzf-Integration
+* [x] [numbat](https://github.com/sharkdp/numbat) widget instead of calculator app? Somewhat hacky, but it works
+* [ ] see this: https://github.com/quantonganh/helix-wezterm
+* [ ] https://github.com/coffebar/hyprland-monitor-attached
 * [ ] fix cursor theme
 * [ ] Find a display configurator (e.g., wdisplays), but make sure it works well on Hyprland
-* [ ] https://github.com/coffebar/hyprland-monitor-attached
-* [ ] see this: https://github.com/quantonganh/helix-wezterm
-* [ ] helix: select next matching word with key (Ctrl + D?) and move lines up and down with keys (Alt + Up/Down or j/k?)
-* [ ] eww [numbat](https://github.com/sharkdp/numbat) widget
-* [ ] ripgrep-all with fzf? https://github.com/phiresky/ripgrep-all/wiki/fzf-Integration
-* Example: https://github.com/i4pg/dotfiles
+* [ ] Remove dependency on wlogout, waybar and rofi by using something similar to eww (but eww seems unmaintained?)
 
 # Left to config
 * [x] bat: https://github.com/catppuccin/bat
@@ -87,7 +87,7 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [x] atuin
 * [?] hypr -- left integration with other apps: mako, swaylock, swayidle, brightnessctl, wl-clipboard?, grim, slurp
 * [x] nushell
-* [ ] swaylock
+* [x] swaylock
 * [ ] eww
 * [x] wezterm
 * [x] zellij

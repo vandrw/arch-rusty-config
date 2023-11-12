@@ -1,0 +1,33 @@
+#!/bin/bash
+
+swaylock -f \
+-Fklre \
+-c 11111b \
+--font "FiraCode Nerd Font" \
+--font-size 24 \
+--indicator-radius 100 \
+--indicator-thickness 20 \
+--inside-color 11111b \
+--inside-clear-color 11111b \
+--inside-caps-lock-color 11111b \
+--inside-ver-color 11111b \
+--inside-wrong-color 11111b \
+--key-hl-color 89dceb \
+--layout-bg-color 11111b \
+--layout-border-color 11111b \
+--layout-text-color cdd6f4 \
+--line-color 11111b \
+--ring-color 89b4fa \
+--ring-clear-color a6e3a1 \
+--ring-caps-lock-color cba6f7 \
+--ring-ver-color 89b4fa \
+--ring-wrong-color f38ba8 \
+--separator-color 11111b \
+--text-color cdd6f4 \
+--text-clear-color a6e3a1 \
+--text-caps-lock-color cba6f7 \
+--text-ver-color 89b4fa \
+--text-wrong-color f38ba8 \
+--bs-hl-color eba0ac \
+--caps-lock-bs-hl-color f5c2e7 \
+--caps-lock-key-hl-color b4befe
