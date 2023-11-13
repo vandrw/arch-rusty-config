@@ -35,6 +35,6 @@ fi
 
 # Trigger upgrade
 if [ "$1" == "up" ] ; then
-    wezterm -- sh -c "echo 'Beginning system upgrade...' ; paru -Syu $rstp_exup"
+    wezterm -e sh -c "echo 'Beginning system upgrade...' ; paru -Syu $rstp_exup"
 fi
 

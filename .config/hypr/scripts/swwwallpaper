@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+if [ -z "$1" ] ; then
+    echo "Usage: ./swwwallpaper [FILE]" 
+    echo "    sets the wallpaper to FILE"
+    exit 1
+fi
+
+swww query
+if [ $? -eq 1 ] ; then
+    swww init
+fi
+
+swww img "$1" \
+    --transition-bezier .43,1.19,1,.4 \
+    --transition-type "grow" \
+    --transition-duration 0.7 \
+    --transition-fps 60 \
+    --invert-y \
+    --transition-pos "$( hyprctl cursorpos )"
+

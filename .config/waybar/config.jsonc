@@ -34,7 +34,7 @@
             "format": "  {}",
             "separate-outputs": true,
             "rewrite": {
-                "andrew@arch:(.*)": "$1 ",
+                "(.*)@arch(.*)": "$1 ",
                 "(.*) — Librewolf": "$1 󰈹",
                 "(.*)Librewolf": "Librewolf 󰈹",
                 "(.*) — Dolphin": "$1 󰉋",
@@ -51,8 +51,8 @@
         },
     
         "clock": {
-            "format": "{:%I:%M %p 󰃭 %a %d}",
-            "format-alt": "{:%H:%M  %b %Y}",
+            "format": "{:%H:%M  %d %b %Y}",
+            "format-alt": "{:%I:%M %p 󰃭 %a %d}",
             "tooltip-format": "<tt><big>{calendar}</big></tt>"
         },
     
@@ -171,7 +171,7 @@
         "custom/power": {
             "format": "{}",
             "exec": "echo ; echo  logout",
-            "on-click": "~/.config/hypr/scripts/logoutlaunch 2",
+            "on-click": "~/.config/hypr/scripts/logoutlaunch",
             "interval" : 86400, // once every day
             "tooltip": true
         },

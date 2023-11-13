@@ -3,14 +3,14 @@
     font-size: ${fntSize}px;
 }
 
-@import "$HOME/.config/waybar/themes/${wbarTheme}.css";
+@import "$HOME/.config/waybar/style.css";
 
 window {
     background-color: ${WindBg};
 }
 
 button {
-    color: ${BtnCol};
+    color: black;
     background-color: @main-bg;
     outline-style: none;
     border: none;
