@@ -16,10 +16,10 @@ ofc=`checkupdates | wc -l`
 # Check for rustup updates
 rstp=`rustup check | grep "Update available" | wc -l`
 if [ $rstp -gt 0 ] ; then
-    rstp="\n󰏓 Rustup $rstp"
+    rstp_disp="\n󰏓 Rustup $rstp"
     rstp_exup="; rustup update"
 else
-    rstp=""
+    rstp_disp=""
     rstp_exup=""
 fi
 
@@ -35,6 +35,6 @@ fi
 
 # Trigger upgrade
 if [ "$1" == "up" ] ; then
-    wezterm --title systemupdate sh -c "paru -Syu $rstp_exup"
+    wezterm -- sh -c "echo 'Beginning system upgrade...' ; paru -Syu $rstp_exup"
 fi
 

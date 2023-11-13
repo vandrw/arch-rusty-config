@@ -1,13 +1,22 @@
 * {
     border: none;
     border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "FiraCode Nerd Font";
     font-weight: bold;
     font-size: 11px;
     min-height: 10px;
 }
 
-@import "themes/theme.css";
+@define-color bar-bg rgba(0, 0, 0, 0);
+
+@define-color main-bg #11111b;
+@define-color main-fg #cdd6f4;
+
+@define-color wb-act-bg #a6adc8;
+@define-color wb-act-fg #313244;
+
+@define-color wb-hvr-bg #f5c2e7;
+@define-color wb-hvr-fg #313244;
 
 window#waybar {
     background: @bar-bg;
@@ -104,8 +113,6 @@ tooltip {
 #taskbar,
 #tray,
 #custom-updates,
-#custom-wallchange,
-#custom-wbar,
 #window,
 #workspaces,
 #custom-l_end,

@@ -11,9 +11,10 @@ if [ ! -d "$mnt_folder" ]; then
 fi
 
 # Find all users on the system
-for user in $(ls $mnt_folder/home); do
-    if [ "$user" != "lost+found" && "$user" != "" ]; then
-        users+=($user)
+for user in "$mnt_folder"/home/*; do
+    user=$(basename "$user")
+    if [ "$user" != "lost+found" ]; then
+        users+=("$user")
     fi
 done
 
@@ -21,21 +22,16 @@ done
 if [ ${#users[@]} -gt 1 ]; then
     echo "Multiple users found on system. Please select a user to install for:"
     select user in "${users[@]}"; do
-        if [[ " ${users[@]} " =~ " ${user} " ]]; then
+        if [[ ${users[*]} =~ ${user} ]]; then
             break
-        else
-            echo "Invalid selection"
         fi
     done
 else
     user=${users[0]}
-    if [ -z "$user" ]; then
-        user=${users[1]}
-    fi
 fi
 
 if [ -z "$user" ]; then
-    echo "Error: No user found. Please verify that $mnt_folder/home contains a user folder."
+    echo "Error: Invalid user or no user found... Verify you have provided the correct user."
     exit 1
 fi
 
@@ -45,6 +41,9 @@ read -r
 # Copy files to user's home directory
 cp -rv .config $mnt_folder/home/$user
 cp -rv .local $mnt_folder/home/$user
+cp -rv .icons $mnt_folder/home/$user
+cp -rv .gtkrc-2.0 $mnt_folder/home/$user
+cp -rv .gitconfig $mnt_folder/home/$user
 
 chmod +x post_reboot.sh
 cp -av post_reboot.sh $mnt_folder/home/$user

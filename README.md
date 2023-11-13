@@ -71,7 +71,14 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [ ] https://github.com/coffebar/hyprland-monitor-attached
 * [ ] fix cursor theme
 * [ ] Find a display configurator (e.g., wdisplays), but make sure it works well on Hyprland
-* [ ] Remove dependency on wlogout, waybar and rofi by using something similar to eww (but eww seems unmaintained?)
+* [ ] Remove dependency on wleave, waybar and rofi by using something similar to eww (but eww seems unmaintained?)
+
+* [ ] fix logoutlaunch (use only one style, remove _2) -- search logoutlaunch and see how it's used in the config
+       - "Failed to import: error opening file /home/andrew/ ... / Adwaita.css: No such file or directory" -- fix this 
+* [ ] remove all the other waybar styles, keep only the top one
+* [ ] fix thumbnails again in dolphin
+* [ ] fix cursor theme
+* [ ] fix power button not locking the screen on suspend
 
 # Left to config
 * [x] bat: https://github.com/catppuccin/bat
@@ -88,7 +95,6 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [?] hypr -- left integration with other apps: mako, swaylock, swayidle, brightnessctl, wl-clipboard?, grim, slurp
 * [x] nushell
 * [x] swaylock
-* [ ] eww
 * [x] wezterm
 * [x] zellij
 * [x] starship
