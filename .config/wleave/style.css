@@ -10,7 +10,7 @@ window {
 }
 
 button {
-    color: black;
+    color: white;
     background-color: @main-bg;
     outline-style: none;
     border: none;
