@@ -38,11 +38,10 @@ cd ..
 rm -rf paru
 
 # Install nvidia drivers if nvidia card is detected
-if [ `lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l` -gt 0 ]; then
-        echo "Nvidia card detected..."
-        sudo pacman -S --needed nvidia nvidia-utils --noconfirm
-        # paru -S hyprland-nvidia-git --noconfirm
-fi
+# if [ `lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l` -gt 0 ]; then
+#         echo "Nvidia card detected..."
+#         sudo pacman -S --needed nvidia-dkms nvidia-utils --noconfirm
+# fi
 
 echo "Installing additional AUR packages"
 paru -S \

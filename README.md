@@ -69,16 +69,19 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [x] [numbat](https://github.com/sharkdp/numbat) widget instead of calculator app? Somewhat hacky, but it works
 * [ ] see this: https://github.com/quantonganh/helix-wezterm
 * [ ] https://github.com/coffebar/hyprland-monitor-attached
-* [ ] fix cursor theme
 * [ ] Find a display configurator (e.g., wdisplays), but make sure it works well on Hyprland
 * [ ] Remove dependency on wleave, waybar and rofi by using something similar to eww (but eww seems unmaintained?)
 
-* [ ] fix logoutlaunch (use only one style, remove _2) -- search logoutlaunch and see how it's used in the config
+* [x] fix logoutlaunch (use only one style, remove _2) -- search logoutlaunch and see how it's used in the config
        - "Failed to import: error opening file /home/andrew/ ... / Adwaita.css: No such file or directory" -- fix this 
-* [ ] remove all the other waybar styles, keep only the top one
-* [ ] fix thumbnails again in dolphin
+* [x] remove all the other waybar styles, keep only the top one
+* [x] fix thumbnails again in dolphin
+* [x] fix power button not locking the screen on suspend
 * [ ] fix cursor theme
-* [ ] fix power button not locking the screen on suspend
+
+* [ ] fix postboot script adding space in color bootloader config
+* [ ] fix nvidia drivers
+* [ ] finish delta theme
 
 # Left to config
 * [x] bat: https://github.com/catppuccin/bat
