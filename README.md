@@ -71,9 +71,6 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [ ] https://github.com/coffebar/hyprland-monitor-attached
 * [ ] Find a display configurator (e.g., wdisplays), but make sure it works well on Hyprland
 * [ ] Remove dependency on wleave, waybar and rofi by using something similar to eww (but eww seems unmaintained?)
-* [ ] Move everything to a nix config
-* [ ] Look at difftastic (it had some issues with memory for large files?)
-
 * [x] fix logoutlaunch (use only one style, remove _2) -- search logoutlaunch and see how it's used in the config
        - "Failed to import: error opening file /home/andrew/ ... / Adwaita.css: No such file or directory" -- fix this 
 * [x] remove all the other waybar styles, keep only the top one
@@ -84,6 +81,11 @@ For the command-line, a majority of the basic tools are replaced with Rust alter
 * [ ] fix postboot script adding space in color bootloader config
 * [ ] fix nvidia drivers
 * [ ] finish delta theme
+
+* [ ] Take a look at [coreutils](https://github.com/uutils/coreutils)
+* [ ] Look at difftastic (it had some issues with memory for large files?)
+* [ ] See [rip](https://github.com/nivekuil/rip), [ouch](https://github.com/ouch-org/ouch), [trippy](https://github.com/fujiapple852/trippy), [ruplacer](https://github.com/your-tools/ruplacer) (or similar, for helix replace across files)
+* [ ] Move everything to a nix config
 
 # Left to config
 * [x] bat: https://github.com/catppuccin/bat
